@@ -1,0 +1,89 @@
+{
+	"project_id": "85be2a13-ad93-49ed-a1e1-4b0f763ca618",
+	"source": "chat_1",
+	"components": [
+		{
+			"id": "chat_1",
+			"provider": "chat",
+			"config": {
+				"hideForm": true,
+				"mode": "Source",
+				"type": "chat",
+				"parameters": {}
+			},
+			"ui": {
+				"position": {
+					"x": -162.92782394653503,
+					"y": -35.86843885390137
+				},
+				"measured": {
+					"width": 150,
+					"height": 66
+				},
+				"nodeType": "default",
+				"formDataValid": true
+			}
+		},
+		{
+			"id": "llm_1",
+			"provider": "llm_anthropic",
+			"config": {
+				"profile": "claude-3-5-sonnet",
+				"claude-3-5-sonnet": {
+					"apikey": "${ANTHROPIC_API_KEY}"
+				},
+				"parameters": {}
+			},
+			"ui": {
+				"position": {
+					"x": 82.59646022070396,
+					"y": -12.43044702642247
+				},
+				"measured": {
+					"width": 150,
+					"height": 66
+				},
+				"nodeType": "default",
+				"formDataValid": true
+			},
+			"input": [
+				{
+					"lane": "questions",
+					"from": "chat_1"
+				}
+			]
+		},
+		{
+			"id": "response_1",
+			"provider": "response_answers",
+			"config": {
+				"laneName": "answers"
+			},
+			"ui": {
+				"position": {
+					"x": 349.98481138562676,
+					"y": 16.12266583731212
+				},
+				"measured": {
+					"width": 150,
+					"height": 66
+				},
+				"nodeType": "default",
+				"formDataValid": true
+			},
+			"input": [
+				{
+					"lane": "answers",
+					"from": "llm_1"
+				}
+			]
+		}
+	],
+	"viewport": {
+		"x": 269.78940523007617,
+		"y": 127.12000352367215,
+		"zoom": 0.9821395952633923
+	},
+	"version": 1,
+	"docRevision": 7
+}
